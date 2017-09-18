@@ -3,6 +3,7 @@ import axios from 'axios';
 import {ApiAiClient} from "api-ai-javascript";
 import $ from "jquery";
 import {Popover, Well, Table} from "react-bootstrap";
+import Cookies from "js-cookie";
 
 const client = new ApiAiClient({accessToken:'fcd112bd21234304ba7baaaee2993a8e'})
 const promise = client.eventRequest("MSG_SEND");
@@ -21,6 +22,7 @@ export default class SecondaryComponent extends React.Component{
 	this.makeCall = this.makeCall.bind(this);
 	this.changeText = this.changetext.bind(this);
 	this.addChatDiv = this.addChatDiv.bind(this);
+	this.csrfSafeMethod = this.csrfSafeMethod.bind(this);
 	}
 
 	componentDidMount(){
@@ -70,6 +72,11 @@ export default class SecondaryComponent extends React.Component{
 		});
 	}
 
+	csrfSafeMethod(meth) {
+    // these HTTP methods do not require CSRF protection
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(meth));
+	}
+
 	makeCall(event){
 		console.log("In the makeCall");
 		console.log(event.charCode);
@@ -86,8 +93,24 @@ export default class SecondaryComponent extends React.Component{
 					this.setState({
 						result: d3
 					})
+					let dat = {"username": "ancrock"};
 					$.ajax({
-						url:"/api/local"
+						context: this,
+						beforeSend: function(xhr, settings) {
+										let csrftoken = Cookies.get('csrftoken');
+										console.log("This is the cookie", Cookies.get());
+        								if (!(this.csrfSafeMethod(settings.type)) && !this.crossDomain) {
+            								xhr.setRequestHeader("X-CSRFToken", csrftoken);
+        								}
+    								},			
+						url:"/smartassistant/api/getPerson/",
+						data: JSON.stringify(dat),
+						type:"POST",
+						contentType: 'application/json; charset=utf-8',
+						dataType: 'json',
+						success: function(result) {
+        					alert(result);
+    					}
 					});
 				}else{
 					d1.unshift(<div style={{width:"50%", float:"right"}}>
