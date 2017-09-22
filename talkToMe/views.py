@@ -21,5 +21,5 @@ def apicall(request):
 			# print 'Raw Data: "%s"' % request.body
 			json_data = json.loads(request.body);
 			print json_data
-			result = sparks.getPerson(json_data)
+			result = sparks.getData()
 			return HttpResponse(json.dumps(result));

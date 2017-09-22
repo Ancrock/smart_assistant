@@ -1,9 +1,10 @@
 import React from 'react';
-import axios from 'axios';
 import {ApiAiClient} from "api-ai-javascript";
 import $ from "jquery";
 import {Popover, Well, Table} from "react-bootstrap";
 import Cookies from "js-cookie";
+import TableComponent from "./TableComponent.js";
+import TableComponent2 from "./TableComponent2.js";
 
 const client = new ApiAiClient({accessToken:'fcd112bd21234304ba7baaaee2993a8e'})
 const promise = client.eventRequest("MSG_SEND");
@@ -89,10 +90,7 @@ export default class SecondaryComponent extends React.Component{
 				let k = response.result.fulfillment.speech;
 				if((response.result.actionIncomplete === false) && (response.result.action !== "input.unknown")){
 					let d3 = this.state.result;
-					d3.unshift(<Table striped bordered condensed hover><thead><tr><th>City</th><th>Temperature</th></tr></thead><tbody><tr><td>Dallas</td><td>98 &#8457;</td></tr></tbody></Table>);
-					this.setState({
-						result: d3
-					})
+					// d3.unshift(<Table striped bordered condensed hover><thead><tr><th>City</th><th>Temperature</th></tr></thead><tbody><tr><td>Dallas</td><td>98 &#8457;</td></tr></tbody></Table>);
 					let dat = {"username": "ancrock"};
 					$.ajax({
 						context: this,
@@ -109,25 +107,27 @@ export default class SecondaryComponent extends React.Component{
 						contentType: 'application/json; charset=utf-8',
 						dataType: 'json',
 						success: function(result) {
-        					alert(result);
+        					d3.unshift(<TableComponent2 data={result} />)
+        					this.setState({
+								result: d3
+							});
     					}
 					});
-				}else{
-					d1.unshift(<div style={{width:"50%", float:"right"}}>
-    <Popover
-      id="popover-basic"
-      placement="right"
-      title="Tina Says:"
-      style={{position: "relative"}}
-    >
-      {k}
-    </Popover><br/><br/> </div>);
-					this.setState({
-						textValue: "",
-						responseText: response.result.fulfillment.speech,
-						divs: d1
-					});
-			}
+				}
+				d1.unshift(<div style={{width:"50%", float:"right"}}>
+			    <Popover
+			      id="popover-basic"
+			      placement="right"
+			      title="Tina Says:"
+			      style={{position: "relative"}}
+			    >
+			      {k}
+			    </Popover><br/><br/> </div>);
+				this.setState({
+					textValue: "",
+					responseText: response.result.fulfillment.speech,
+					divs: d1
+				});
 			})
 		}
 	}
@@ -153,23 +153,21 @@ export default class SecondaryComponent extends React.Component{
  	// 	oReq.addEventListener("load", this.increaseCount);
 		return(			
 				<div>
-				<div style={{width:"70%", float:"left"}}>
-				{this.state.result}
-				</div>
-				<div>
-				<div >
-				<Well style={{width: "30%", height:"100%", bottom:"0px", right:"0px", position:"fixed", backgroundColor:"smoke"}}>
-				<div style={{marginTop:"50px"}}>
-				<div style={{position:"fixed", width:"100%", height:"100%", overflowY:"scroll"}}>
-				<input type='text' className="form-control" placeholder="Say Hello!!" value={this.state.textValue} onChange={this.changeText} onKeyPress={this.makeCall} />
-				<br/>
-				</div>
-				<br/><br/>
-				{this.state.divs}
-				</div>
-				</Well>
-				</div>
-				</div>
+					<div style={{width:"70%", float:"left", overflowX:"auto"}}>
+					{this.state.result}
+					</div>
+					<Well style={{width: "30%", height:"100%", bottom:"0px", right:"0px", position:"fixed", backgroundColor:"smoke"}}>
+						<div style={{marginTop:"50px"}}>
+							<div style={{position:"fixed", width:"100%", height:"100%"}}>
+								<input type='text' className="form-control" placeholder="Say Hello!!" value={this.state.textValue} onChange={this.changeText} onKeyPress={this.makeCall} />
+								<br/>
+							</div>
+							<br/><br/>
+							<div style={{height:"100%", overflowY:"auto", position:"fixed"}}>
+							{this.state.divs}
+							</div>
+						</div>
+					</Well>
 				</div>
 			);
 	}
