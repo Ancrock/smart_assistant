@@ -21239,14 +21239,15 @@ var MainComponent = function (_React$Component) {
 				null,
 				_react2.default.createElement(
 					"div",
-					{ style: { width: "70%", float: "left" } },
+					null,
 					_react2.default.createElement(
 						_reactBootstrap.Jumbotron,
 						null,
+						_react2.default.createElement("img", { src: "https://preview.ibb.co/hSekpQ/Datamorphix_Logo.png", style: { height: "100px", width: "100px", float: "left" } }),
 						_react2.default.createElement(
 							"h1",
 							null,
-							"Data Morphix Smart Assistant"
+							"Datamorphix Smart Assistant"
 						),
 						_react2.default.createElement(
 							"p",
@@ -21258,7 +21259,7 @@ var MainComponent = function (_React$Component) {
 							null,
 							_react2.default.createElement(
 								_reactBootstrap.Button,
-								{ bsStyle: "primary" },
+								{ bsStyle: "primary", href: "http://www.datamorphix.ai" },
 								"Learn more"
 							)
 						)
@@ -21277,6 +21278,8 @@ var MainComponent = function (_React$Component) {
 }(_react2.default.Component);
 
 _reactDom2.default.render(_react2.default.createElement(MainComponent, null), document.getElementById('app'));
+
+// https://preview.ibb.co/hSekpQ/Datamorphix_Logo.png
 
 /***/ }),
 /* 233 */

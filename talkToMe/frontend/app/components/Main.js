@@ -11,11 +11,12 @@ class MainComponent extends React.Component{
 	render(){
 		return(
 			<div>
-			<div style={{width:"70%", float:"left"}}>
+			<div>
 			<Jumbotron>
-    			<h1>Data Morphix Smart Assistant</h1>
+				<img src="https://preview.ibb.co/hSekpQ/Datamorphix_Logo.png" style={{height:"100px", width:"100px", float:"left"}}/>
+    			<h1>Datamorphix Smart Assistant</h1>
     			<p>Welcome to the smart assistant! You can interact with the system by the text area at the right</p>
-    			<p><Button bsStyle="primary">Learn more</Button></p>
+    			<p><Button bsStyle="primary" href="http://www.datamorphix.ai">Learn more</Button></p>
   			</Jumbotron>
   			</div>
   			<div>
@@ -27,3 +28,5 @@ class MainComponent extends React.Component{
 }
 
 ReactDOM.render(<MainComponent />, document.getElementById('app'));
+
+// https://preview.ibb.co/hSekpQ/Datamorphix_Logo.png
