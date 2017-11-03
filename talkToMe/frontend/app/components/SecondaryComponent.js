@@ -4,6 +4,7 @@ import $ from "jquery";
 import {Popover, Well, Table} from "react-bootstrap";
 import Cookies from "js-cookie";
 import TableComponent from "./TableComponent.js";
+import TableComponent2 from "./TableComponent2.js";
 import TableComponent3 from "./TableComponent3.js";
 import {connect} from 'react-redux';
 import {getRestaurantData} from '../actions/getRestaurantData.js';
