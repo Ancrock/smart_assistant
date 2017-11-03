@@ -173,7 +173,6 @@ class SecondaryComponent extends React.Component{
 				<div>
 					<div style={{width:"70%", float:"left", overflowX:"auto"}}>
 					{this.state.result}
-					{this.props.restaurantData.name}
 					</div>
 					<Well style={{width: "30%", height:"100%", bottom:"0px", right:"0px", position:"fixed", backgroundColor:"smoke"}}>
 						<div style={{marginTop:"50px"}}>
