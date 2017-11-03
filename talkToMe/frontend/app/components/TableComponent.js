@@ -56,7 +56,7 @@ class TableComponent extends React.Component{
         	}
         	columns.push(col);
 		}.bind(this));
-		console.log(columns);
+		// console.log(columns);
 		this.setState({
 			columns
 		});

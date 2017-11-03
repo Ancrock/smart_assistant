@@ -18,7 +18,7 @@ const ColorCell = React.createClass({
 	}
 })
 
-class TableComponent2 extends React.Component{
+class TableComponent3 extends React.Component{
 	constructor(props){
 		super(props);
 		this.state={
@@ -26,27 +26,17 @@ class TableComponent2 extends React.Component{
 			columns: []
 		};
 		this._columns= [
-		{key: "profile_image", name: "Profile image", formatter: ImageCell},
-		{key: "rating", name: "rating"},
-		{key: "foodie_color", name: "Foodie color", formatter: ColorCell},
-		{key: "rating_text", name: "Rating text"},
-		{key: "review_id", name: "Review id"},
-		{key: "user_level_num", name: "User level"},
-		{key: "class_name", name: "Class name"},
-		{key: "rating_time_friendly", name: "Rating time friendly"},
-		{key: "restaurant_id", name: "Restaurant id"},
-		{key: "confidence", name: "Confidence"},
-		{key:"review_text", name:"Review text"},
-		{key: "user_zomatohandle", name: "User Zomatohandle"},
-		{key: "comment_count", name: "Comment count"},
-		{key: "score", name: "Score"},
-		{key: "likes", name: "Likes"},
-		{key: "rating_color", name: "Rating color", formatter: ColorCell},
-		{key: "time_stamp", name: "Time stamp"},
-		{key: "retrieved_time", name: "Retrieved time"},
-		{key: "user_foodie_level", name: "User foodie_level"},
-		{key: "profile_url", name: "Profile url"},
-		{key: "user_name", name: "User name"}];
+		{key: "Num", name: "Num"},
+		{key: "Acct", name: "Account"},
+		{key: "Acct1", name: "Account1"},
+		{key: "Type", name: "Type"},
+		{key: "Date", name: "Date"},
+		{key: "Number", name: "Number"},
+		{key: "Name", name: "Name"},
+		{key: "Memo", name: "Memo"},
+		{key: "Split", name: "Split"},
+		{key: "Debit", name: "Debit"},
+		{key:"Credit", name:"Credit"}];
 		this._columns2 = []
 		this.rowGetter = this.rowGetter.bind(this);
 		this.createColumns = this.createColumns.bind(this);
@@ -94,4 +84,4 @@ class TableComponent2 extends React.Component{
 	}
 }
 
-export default TableComponent2;
+export default TableComponent3;

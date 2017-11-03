@@ -3,5 +3,6 @@ from . import views
 
 urlpatterns = [
 	url(r'^$', views.index, name='index'),
-	url(r'^api/getPerson/$', views.apicall, name='index')
+	url(r'^api/getPerson/$', views.apicall, name='index'),
+	url(r'^api/getBankData/$', views.getBankData, name="something")
 ]

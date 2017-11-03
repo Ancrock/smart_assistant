@@ -1,5 +1,5 @@
 module.exports = {
-    entry: "./app/components/Main.js",
+    entry: "./app/components/index.js",
     output: {
         filename: "../static/talkToMe/bundle.js"
     },

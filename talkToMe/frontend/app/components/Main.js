@@ -2,8 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom";
 import SecondaryComponent from "./SecondaryComponent";
 import {Jumbotron, Button} from "react-bootstrap";
+import {Provider} from 'react-redux';
+import store from './store.js';
 
-class MainComponent extends React.Component{
+export default class MainComponent extends React.Component{
 	constructor(props){
 		super(props)
 	}
@@ -27,6 +29,6 @@ class MainComponent extends React.Component{
 	}
 }
 
-ReactDOM.render(<MainComponent />, document.getElementById('app'));
+// ReactDOM.render(<Provider store={store}> <MainComponent /> </Provider>, document.getElementById('app'));
 
 // https://preview.ibb.co/hSekpQ/Datamorphix_Logo.png

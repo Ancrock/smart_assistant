@@ -30,6 +30,10 @@
     "react-bootstrap": "^0.31.3",
     "react-data-grid": "^2.0.59",
     "react-dom": "^15.6.1",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.2.0",
     "style-loader": "^0.18.2",
     "webpack": "^3.5.6"
   },
